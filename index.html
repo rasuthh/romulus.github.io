@@ -4,111 +4,136 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RASUTH FLOW STATE STUDIO CLUB</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
       font-family: 'Inter', sans-serif; 
       background: #0f0f0f; 
       color: #ffffff; 
-      line-height: 1.6;
-      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    /* Patreon FlowStateStudio EXACT clone colors/gradients */
+    :root {
+      --patreon-dark: #0a0a0a;
+      --patreon-card-bg: rgba(255,255,255,0.03);
+      --patreon-border: rgba(255,255,255,0.08);
+      --patreon-gold: #feca2d;
+      --patreon-red: #ff424d;
+      --patreon-glow: rgba(254,202,45,0.3);
     }
     .navbar {
-      background: #000000 !important;
-      border-bottom: 1px solid #1f1f1f;
-      padding: 1rem 0;
+      background: rgba(10,10,10,0.95) !important;
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--patreon-border);
+      padding: 1.2rem 0;
     }
     .navbar-brand { 
-      font-size: 20px; 
-      font-weight: 700; 
-      color: #ffffff !important; 
+      font-size: 24px; 
+      font-weight: 800; 
+      background: linear-gradient(135deg, var(--patreon-gold), #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
     }
     .nav-link { 
-      color: #b3b3b3 !important; 
-      font-size: 16px; 
+      color: rgba(255,255,255,0.8) !important; 
       font-weight: 500; 
-      margin-right: 2rem;
+      margin-right: 2.5rem;
+      transition: 0.3s;
     }
-    .nav-link:hover { color: #ff424d !important; }
-    .btn-primary {
-      background: #ff424d !important;
+    .nav-link:hover { color: var(--patreon-gold) !important; }
+    .btn-join {
+      background: linear-gradient(135deg, var(--patreon-red), #e63a45);
       border: none !important;
       border-radius: 30px !important;
-      padding: 8px 20px !important;
-      font-weight: 500;
+      padding: 12px 32px !important;
+      font-weight: 600 !important;
+      color: white !important;
+      box-shadow: 0 8px 25px rgba(255,66,77,0.4);
       transition: all 0.3s;
     }
-    .btn-primary:hover { 
-      background: #e63a45 !important;
-      transform: translateY(-1px);
+    .btn-join:hover { 
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(255,66,77,0.6);
+      background: linear-gradient(135deg, #e63a45, var(--patreon-red)) !important;
+    }
+    .hero {
+      min-height: 100vh;
+      background: 
+        radial-gradient(circle at 30% 20%, var(--patreon-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,66,77,0.2) 0%, transparent 50%),
+        #0f0f0f;
+      display: flex;
+      align-items: center;
+      position: relative;
     }
     .hero-title { 
-      font-size: 56px; 
-      font-weight: 700; 
-      color: #ffffff;
-      max-width: 700px;
-      margin: 0 auto 2rem;
+      font-size: clamp(48px, 10vw, 72px); 
+      font-weight: 900; 
+      background: linear-gradient(135deg, var(--patreon-gold), #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
     .hero-subtitle { 
-      font-size: 20px; 
-      color: #b3b3b3; 
-      max-width: 700px; 
-      margin: 0 auto 3rem;
+      font-size: clamp(18px, 3vw, 24px); 
+      color: rgba(255,255,255,0.85); 
+      max-width: 650px;
+      line-height: 1.6;
     }
+    .section { padding: 8rem 0; }
     .section-title { 
-      font-size: 36px; 
-      font-weight: 600; 
-      color: #ffffff;
+      font-size: clamp(32px, 5vw, 42px); 
+      font-weight: 700; 
+      background: linear-gradient(135deg, #ffffff, rgba(255,255,255,0.8));
+      -webkit-background-clip: text;
+      background-clip: text;
       text-align: center;
       margin-bottom: 4rem;
     }
-    .section-padding { padding: 6rem 0; }
-    .core-block { 
-      text-align: center; 
-      padding: 3rem 0; 
-      margin: 2rem 0;
+    .content-card {
+      background: var(--patreon-card-bg);
+      border: 1px solid var(--patreon-border);
+      border-radius: 24px;
+      padding: 3rem;
+      backdrop-filter: blur(20px);
+      transition: all 0.4s;
+      height: 100%;
     }
-    .core-title { 
-      font-size: 32px; 
-      font-weight: 600; 
-      color: #ffffff;
-      margin-bottom: 1rem;
+    .content-card:hover {
+      border-color: var(--patreon-gold);
+      box-shadow: 0 25px 50px rgba(254,202,45,0.15);
+      transform: translateY(-8px);
     }
-    .core-text { 
-      font-size: 18px; 
-      color: #b3b3b3; 
+    .patreon-cta {
+      background: linear-gradient(135deg, rgba(255,66,77,0.1), rgba(254,202,45,0.05));
+      border: 1px solid var(--patreon-border);
+      border-radius: 24px;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    footer {
+      border-top: 1px solid var(--patreon-border);
+      color: #777;
+      padding: 3rem 0;
+      text-align: center;
     }
     .flow-step { 
-      margin: 2rem 0; 
-      text-align: center;
-    }
-    .flow-icon { 
-      font-size: 3rem; 
-      color: #ffffff; 
-      margin-bottom: 1rem; 
-    }
-    .cta-title { 
-      font-size: 48px; 
-      font-weight: 600; 
-      color: #ffffff;
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    footer { 
-      border-top: 1px solid #1f1f1f; 
-      color: #777; 
-      padding: 3rem 0; 
       text-align: center; 
-      font-size: 14px;
+      margin: 2rem 1rem;
+      opacity: 0.9;
+      transition: 0.3s;
     }
-    .img-section img { 
-      width: 100%; 
-      height: 400px; 
-      object-fit: cover; 
-      border-radius: 12px;
+    .flow-step:hover { opacity: 1; transform: scale(1.05); }
+    .flow-icon { 
+      font-size: 3.5rem; 
+      background: linear-gradient(135deg, var(--patreon-gold), var(--patreon-red));
+      -webkit-background-clip: text;
+      background-clip: text;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
@@ -117,213 +142,55 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">FlowState Studio Club</a>
+    <a class="navbar-brand" href="#">RASUTH FLOW STATE STUDIO CLUB</a>
     <div class="navbar-nav ms-auto">
-      <a class="nav-link" href="#explore">Explore</a>
+      <a class="nav-link" href="#hero">Explore</a>
       <a class="nav-link" href="#studio">Community</a>
-      <a class="nav-link btn btn-primary" href="#join">Join</a>
+      <a class="nav-link btn-join ms-3" href="https://www.patreon.com/yourusername">Join</a>
     </div>
   </div>
 </nav>
 
 <!-- PAGE 1: LANDING -->
-<div id="landing" style="padding-top: 100px;">
-
-  <!-- HERO -->
-  <section class="text-center section-padding">
-    <div class="container">
-      <h1 class="hero-title">Enter Flow. Build Real Commodity Power.</h1>
-      <p class="hero-subtitle">Trade real commodities. Build real ventures. Stay in deep flow.</p>
-      <a href="#join" class="btn btn-primary btn-lg px-5 py-3 fs-4">Join FlowState Studio</a>
-    </div>
-  </section>
-
-  <!-- VISUAL SECTION -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 mb-4">
-          <img src="https://images.unsplash.com/photo-1558618047-3c8c76bbb17e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commodity trade" class="img-section">
-        </div>
-        <div class="col-lg-6">
-          <h2 class="fw-600 mb-4" style="font-size:36px;color:#ffffff;">Real World Commodity Execution</h2>
-          <p class="fs-5" style="color:#b3b3b3;font-size:18px;">
-            Agriculture → export → value chain. Match perpetual human demand through commodities that move markets.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3 CORE BLOCKS -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="core-block">
-            <i class="fas fa-globe" style="font-size:4rem;color:#ffffff;"></i>
-            <h3 class="core-title">Global Trade</h3>
-            <p class="core-text">Learn import/export systems</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="core-block">
-            <i class="fas fa-brain" style="font-size:4rem;color:#ffffff;"></i>
-            <h3 class="core-title">Flow State</h3>
-            <p class="core-text">No distraction execution system</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="core-block">
-            <i class="fas fa-building" style="font-size:4rem;color:#ffffff;"></i>
-            <h3 class="core-title">Build Ventures</h3>
-            <p class="core-text">Turn waste → commodity → business</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FLOW STATE SECTION -->
-  <section class="section-padding" id="explore">
-    <div class="container">
-      <h2 class="section-title">Work Like This</h2>
-      <div class="row g-5 justify-content-center">
-        <div class="col-auto flow-step"><i class="fas fa-bullseye flow-icon"></i><div style="color:#ffffff;font-weight:500;">Focus</div></div>
-        <div class="col-auto flow-step"><i class="fas fa-hammer flow-icon"></i><div style="color:#ffffff;font-weight:500;">Execute</div></div>
-        <div class="col-auto flow-step"><i class="fas fa-cubes flow-icon"></i><div style="color:#ffffff;font-weight:500;">Build</div></div>
-        <div class="col-auto flow-step"><i class="fas fa-rocket flow-icon"></i><div style="color:#ffffff;font-weight:500;">Scale</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section-padding text-center" id="join">
-    <div class="container">
-      <h2 class="cta-title">Enter Flow. Build Real Value.</h2>
-      <a href="#" class="btn btn-primary btn-lg px-5 py-3 fs-2">Start Now</a>
-    </div>
-  </section>
-
-</div>
-
-<!-- PAGE 2: STUDIO -->
-<div id="studio" style="display:none;padding-top:100px;">
-
-  <!-- HEADER -->
-  <section class="text-center section-padding">
-    <div class="container">
-      <div style="max-width:700px;margin:0 auto;">
-        <h1 class="hero-title">Inside FlowState Studio</h1>
-        <p class="hero-subtitle">Where commodities meet execution</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- LEARNING TRACKS -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="row g-5 text-center">
-        <div class="col-md-4">
-          <h3 style="font-size:32px;font-weight:600;color:#ffffff;margin-bottom:1rem;">Commodity Basics</h3>
-          <p style="font-size:18px;color:#b3b3b3;">Master sourcing, processing, market demand</p>
-        </div>
-        <div class="col-md-4">
-          <h3 style="font-size:32px;font-weight:600;color:#ffffff;margin-bottom:1rem;">Global Trade Systems</h3>
-          <p style="font-size:18px;color:#b3b3b3;">Documents, tariffs, logistics, export mastery</p>
-        </div>
-        <div class="col-md-4">
-          <h3 style="font-size:32px;font-weight:600;color:#ffffff;margin-bottom:1rem;">Real Business Execution</h3>
-          <p style="font-size:18px;color:#b3b3b3;">Turn knowledge into revenue systems</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REAL WORLD APPLICATION -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="row align-items-center gy-5">
-        <div class="col-lg-6 order-lg-2">
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commodity chain" class="img-section">
-        </div>
-        <div class="col-lg-6 order-lg-1">
-          <h2 class="fw-600 mb-4" style="font-size:36px;color:#ffffff;">From farm → waste → product → export → revenue</h2>
-          <p class="fs-5 mb-0" style="color:#b3b3b3;font-size:18px;">Real commodity chains. Real human demand. Perpetual opportunity.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DAILY FLOW SYSTEM -->
-  <section class="section-padding">
-    <div class="container">
-      <h2 class="section-title">Daily Flow System</h2>
-      <div class="row g-4 justify-content-center text-center">
-        <div class="col-md-3"><i class="fas fa-sun flow-icon mb-3"></i><h4 style="color:#ffffff;font-weight:500;">Morning: Learning</h4></div>
-        <div class="col-md-3"><i class="fas fa-hammer flow-icon mb-3"></i><h4 style="color:#ffffff;font-weight:500;">Midday: Execution</h4></div>
-        <div class="col-md-3"><i class="fas fa-book flow-icon mb-3"></i><h4 style="color:#ffffff;font-weight:500;">Evening: Reflection</h4></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MONETIZATION -->
-  <section class="section-padding">
-    <div class="container">
-      <h2 class="section-title">Build Income Through Commodities</h2>
-      <div class="row g-4 justify-content-center text-center">
-        <div class="col-md-2"><i class="fas fa-exchange-alt flow-icon mb-3"></i><div style="color:#ffffff;font-weight:500;">Trade</div></div>
-        <div class="col-md-2"><i class="fas fa-industry flow-icon mb-3"></i><div style="color:#ffffff;font-weight:500;">Process</div></div>
-        <div class="col-md-2"><i class="fas fa-plane flow-icon mb-3"></i><div style="color:#ffffff;font-weight:500;">Export</div></div>
-        <div class="col-md-2"><i class="fas fa-chart-line flow-icon mb-3"></i><div style="color:#ffffff;font-weight:500;">Scale</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="section-padding text-center">
-    <div class="container">
-      <h2 class="cta-title">Join FlowState Studio</h2>
-      <a href="#" class="btn btn-primary btn-lg px-5 py-3 fs-2">Join FlowState Studio</a>
-    </div>
-  </section>
-
-</div>
-
-<!-- FOOTER -->
-<footer>
+<section id="hero" class="hero pt-5" style="padding-top: 120px;">
   <div class="container">
-    <p>FlowState Studio</p>
+    <div class="row justify-content-center">
+      <div class="col-lg-7 text-center">
+        <h1 class="hero-title">Enter Flow. Build Real Commodity Power.</h1>
+        <p class="hero-subtitle">Trade real commodities. Build real ventures. Stay in deep flow. Match Human Demand. Build Through Commodities. Execute in Flow.</p>
+        <div class="mt-5">
+          <a href="https://www.patreon.com/yourusername" class="btn btn-lg px-6 py-4 fs-4 fw-bold btn-join">Join FlowState Studio</a>
+        </div>
+      </div>
+    </div>
   </div>
-</footer>
+</section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  // Page switching
-  document.querySelectorAll('.nav-link:not(.btn)').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = link.getAttribute('href');
-      if (target === '#explore') {
-        document.getElementById('landing').scrollIntoView({behavior: 'smooth'});
-      } else if (target === '#studio') {
-        document.getElementById('studio').style.display = 'block';
-        document.getElementById('landing').style.display = 'none';
-        document.getElementById('studio').scrollIntoView({behavior: 'smooth'});
-      }
-    });
-  });
+<section class="section bg-dark" style="background: rgba(15,15,15,0.8);">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <img src="https://images.unsplash.com/photo-1558618047-3c8c76bbb17e?w=600&fit=crop" class="img-fluid rounded-3 shadow-lg" alt="Commodity trading">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="display-5 fw-bold mb-4" style="color:#ffffff;">Real World Commodity Execution</h2>
+        <p class="lead mb-0" style="color:#b3b3b3;font-size:18px;">Agriculture → export → value chain. From waste → commodity → global opportunity.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  // Navbar scroll effect
-  window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-      navbar.style.background = 'rgba(0,0,0,0.95)';
-    } else {
-      navbar.style.background = '#000000';
-    }
-  });
-</script>
-
-</body>
-</html>
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Core Execution</h2>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="content-card text-center">
+          <i class="fas fa-globe fa-3x mb-4" style="color:var(--patreon-gold);"></i>
+          <h3 class="h3 fw-bold mb-3">Global Trade</h3>
+          <p style="color:#b3b3b3;">Learn import/export systems</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="content-card text-center">
+          <i class="fas fa-brain fa-
