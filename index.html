@@ -1,119 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Navanomy | Commodity & Entrepreneurship</title>
+import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- React -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
-  <!-- Babel -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-  <style>
-    body { background: #0f1115; color: white; }
-    .section { padding: 60px 0; }
-    .card { background: #1a1d24; color: white; border: none; }
-  </style>
-</head>
-
-<body>
-
-<div id="root"></div>
-
-<script type="text/babel">
-
-function Navbar() {
+export default function App() {
   return (
-    <nav className="navbar navbar-dark bg-black">
-      <div className="container">
-        <span className="navbar-brand">NAVANOMY</span>
+    <div className="bg-dark text-white">
+      {/* HERO */}
+      <div className="container text-center py-5">
+        <h1 className="display-3 fw-bold">FlowState Commodity Studio</h1>
+        <p className="lead">Trade. Build. Flow. Real world entrepreneurship meets global commodities.</p>
+        <button className="btn btn-danger btn-lg mt-3">Start Your Flow</button>
       </div>
-    </nav>
-  );
-}
 
-function Hero() {
-  return (
-    <div className="section text-center">
-      <div className="container">
-        <h1>Commodity → Entrepreneurship → Philosophy</h1>
-        <p>Build real-world businesses from physical commodities with purpose.</p>
-      </div>
-    </div>
-  );
-}
-
-function Sections() {
-  return (
-    <div className="section">
-      <div className="container">
-        <div className="row g-4">
-
-          <div className="col-md-4">
-            <div className="card p-3">
-              <h4>Commodity Basics</h4>
-              <p>Start from real materials: food, waste, energy. Value comes from transformation.</p>
+      {/* IMAGE SECTION */}
+      <div className="container py-5">
+        <div className="row">
+          <div className="col-md-6">
+            <img src="https://images.unsplash.com/photo-1559526324-593bc073d938" className="img-fluid rounded" />
+          </div>
+          <div className="col-md-6 d-flex align-items-center">
+            <div>
+              <h2>Commodity Trading</h2>
+              <p>Learn real-world trading of agricultural, energy and industrial commodities with a flow-state mindset.</p>
             </div>
           </div>
-
-          <div className="col-md-4">
-            <div className="card p-3">
-              <h4>Entrepreneurship</h4>
-              <p>Convert raw materials into scalable products. Solve real supply gaps.</p>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card p-3">
-              <h4>Philosophy</h4>
-              <p>Build with purpose. Align profit with sustainability and human progress.</p>
-            </div>
-          </div>
-
         </div>
       </div>
-    </div>
-  );
-}
 
-function Process() {
-  return (
-    <div className="section bg-dark">
-      <div className="container text-center">
-        <h2>Simple Model</h2>
-        <p>Commodity → Waste → Process → Product → Market</p>
+      {/* FEATURES */}
+      <div className="container py-5">
+        <div className="row text-center">
+          <div className="col-md-4">
+            <h3>🌍 Global Trade</h3>
+            <p>Understand import/export systems and international markets.</p>
+          </div>
+          <div className="col-md-4">
+            <h3>🧠 Flow State</h3>
+            <p>Work distraction-free with deep focus and calm execution.</p>
+          </div>
+          <div className="col-md-4">
+            <h3>💰 Real Business</h3>
+            <p>Build actual commodity ventures, not theory.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="container text-center py-5">
+        <h2>Enter Flow. Build Real Value.</h2>
+        <button className="btn btn-danger btn-lg mt-3">Join Studio</button>
       </div>
     </div>
   );
 }
-
-function Footer() {
-  return (
-    <footer className="text-center py-3">
-      © 2026 Navanomy
-    </footer>
-  );
-}
-
-function App() {
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <Sections />
-      <Process />
-      <Footer />
-    </>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-
-</script>
-
-</body>
-</html>
