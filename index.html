@@ -20,6 +20,10 @@
       background: #000000 !important;
       border-bottom: 1px solid #1f1f1f;
       padding: 1rem 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
     }
     .navbar-brand { 
       font-size: 20px; 
@@ -40,10 +44,13 @@
       padding: 8px 20px !important;
       font-weight: 500;
       transition: all 0.3s;
+      color: white !important;
+      text-decoration: none !important;
     }
     .btn-primary:hover { 
       background: #e63a45 !important;
       transform: translateY(-1px);
+      color: white !important;
     }
     .hero-title { 
       font-size: 56px; 
@@ -110,31 +117,64 @@
       object-fit: cover; 
       border-radius: 12px;
     }
+    .page { 
+      display: none; 
+      min-height: 100vh;
+      padding-top: 100px;
+    }
+    .page.active { display: block; }
+    .resource-card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s;
+    }
+    .resource-card:hover {
+      border-color: #ff424d;
+      transform: translateY(-5px);
+    }
+    .resource-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+    .resource-link {
+      color: #ff424d;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .resource-link:hover {
+      color: #e63a45;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" href="#">FlowState Studio Club</a>
+    <a class="navbar-brand" href="#" onclick="showPage('landing')">FlowState Studio Club</a>
     <div class="navbar-nav ms-auto">
-      <a class="nav-link" href="#explore">Explore</a>
-      <a class="nav-link" href="#studio">Community</a>
-      <a class="nav-link btn btn-primary" href="#join">Join</a>
+      <a class="nav-link" href="#" onclick="showPage('explore')">Explore</a>
+      <a class="nav-link" href="#" onclick="showPage('community')">Community</a>
+      <a class="nav-link btn btn-primary" href="https://www.patreon.com/cw/FlowStateStudio" target="_blank">Join</a>
     </div>
   </div>
 </nav>
 
-<!-- PAGE 1: LANDING -->
-<div id="landing" style="padding-top: 100px;">
+<!-- LANDING PAGE -->
+<div id="landing" class="page active">
 
   <!-- HERO -->
   <section class="text-center section-padding">
     <div class="container">
       <h1 class="hero-title">Enter Flow. Build Real Commodity Power.</h1>
       <p class="hero-subtitle">Trade real commodities. Build real ventures. Stay in deep flow.</p>
-      <a href="#join" class="btn btn-primary btn-lg px-5 py-3 fs-4">Join FlowState Studio</a>
+      <a href="https://www.patreon.com/cw/FlowStateStudio" class="btn btn-primary btn-lg px-5 py-3 fs-4" target="_blank">Join FlowState Studio</a>
     </div>
   </section>
 
@@ -185,7 +225,7 @@
   </section>
 
   <!-- FLOW STATE SECTION -->
-  <section class="section-padding" id="explore">
+  <section class="section-padding">
     <div class="container">
       <h2 class="section-title">Work Like This</h2>
       <div class="row g-5 justify-content-center">
@@ -198,121 +238,153 @@
   </section>
 
   <!-- CTA -->
-  <section class="section-padding text-center" id="join">
+  <section class="section-padding text-center">
     <div class="container">
       <h2 class="cta-title">Enter Flow. Build Real Value.</h2>
-      <a href="#" class="btn btn-primary btn-lg px-5 py-3 fs-2">Start Now</a>
+      <a href="https://www.patreon.com/cw/FlowStateStudio" class="btn btn-primary btn-lg px-5 py-3 fs-2" target="_blank">Start Now</a>
     </div>
   </section>
 
 </div>
 
-<!-- PAGE 2: STUDIO -->
-<div id="studio" style="display:none;padding-top:100px;">
-
-  <!-- HEADER -->
+<!-- EXPLORE PAGE -->
+<div id="explore" class="page">
   <section class="text-center section-padding">
     <div class="container">
       <div style="max-width:700px;margin:0 auto;">
-        <h1 class="hero-title">Inside FlowState Studio</h1>
-        <p class="hero-subtitle">Where commodities meet execution</p>
+        <h1 class="hero-title">Explore Commodity Mastery</h1>
+        <p class="hero-subtitle">Deep dive into the systems that power global trade</p>
       </div>
     </div>
   </section>
 
-  <!-- LEARNING TRACKS -->
+  <!-- COMMODITY BASICS -->
   <section class="section-padding">
     <div class="container">
-      <div class="row g-5 text-center">
-        <div class="col-md-4">
-          <h3 style="font-size:32px;font-weight:600;color:#ffffff;margin-bottom:1rem;">Commodity Basics</h3>
-          <p style="font-size:18px;color:#b3b3b3;">Master sourcing, processing, market demand</p>
+      <h2 class="section-title">Commodity Basics</h2>
+      <p style="font-size:20px;color:#b3b3b3;text-align:center;margin-bottom:4rem;">Master sourcing, processing, market demand</p>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="resource-card">
+            <h3 class="resource-title">Commodity Sourcing Guide</h3>
+            <a href="https://www.investopedia.com/terms/c/commodity.asp" class="resource-link" target="_blank">Investopedia: What Are Commodities?</a>
+            <p style="color:#b3b3b3;margin-top:1rem;">Learn commodity fundamentals and market dynamics.</p>
+          </div>
         </div>
-        <div class="col-md-4">
-          <h3 style="font-size:32px;font-weight:600;color:#ffffff;margin-bottom:1rem;">Global Trade Systems</h3>
-          <p style="font-size:18px;color:#b3b3b3;">Documents, tariffs, logistics, export mastery</p>
-        </div>
-        <div class="col-md-4">
-          <h3 style="font-size:32px;font-weight:600;color:#ffffff;margin-bottom:1rem;">Real Business Execution</h3>
-          <p style="font-size:18px;color:#b3b3b3;">Turn knowledge into revenue systems</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REAL WORLD APPLICATION -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="row align-items-center gy-5">
-        <div class="col-lg-6 order-lg-2">
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commodity chain" class="img-section">
-        </div>
-        <div class="col-lg-6 order-lg-1">
-          <h2 class="fw-600 mb-4" style="font-size:36px;color:#ffffff;">From farm → waste → product → export → revenue</h2>
-          <p class="fs-5 mb-0" style="color:#b3b3b3;font-size:18px;">Real commodity chains. Real human demand. Perpetual opportunity.</p>
+        <div class="col-lg-6">
+          <div class="resource-card">
+            <h3 class="resource-title">Processing Basics</h3>
+            <a href="https://www.worldbank.org/en/topic/agriculture/brief/commodities" class="resource-link" target="_blank">World Bank: Commodity Markets</a>
+            <p style="color:#b3b3b3;margin-top:1rem;">Global commodity processing and value chains.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DAILY FLOW SYSTEM -->
-  <section class="section-padding">
-    <div class="container">
-      <h2 class="section-title">Daily Flow System</h2>
-      <div class="row g-4 justify-content-center text-center">
-        <div class="col-md-3"><i class="fas fa-sun flow-icon mb-3"></i><h4 style="color:#ffffff;font-weight:500;">Morning: Learning</h4></div>
-        <div class="col-md-3"><i class="fas fa-hammer flow-icon mb-3"></i><h4 style="color:#ffffff;font-weight:500;">Midday: Execution</h4></div>
-        <div class="col-md-3"><i class="fas fa-book flow-icon mb-3"></i><h4 style="color:#ffffff;font-weight:500;">Evening: Reflection</h4></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MONETIZATION -->
-  <section class="section-padding">
-    <div class="container">
-      <h2 class="section-title">Build Income Through Commodities</h2>
-      <div class="row g-4 justify-content-center text-center">
-        <div class="col-md-2"><i class="fas fa-exchange-alt flow-icon mb-3"></i><div style="color:#ffffff;font-weight:500;">Trade</div></div>
-        <div class="col-md-2"><i class="fas fa-industry flow-icon mb-3"></i><div style="color:#ffffff;font-weight:500;">Process</div></div>
-        <div class="col-md-2"><i class="fas fa-plane flow-icon mb-3"></i><div style="color:#ffffff;font-weight:500;">Export</div></div>
-        <div class="col-md-2"><i class="fas fa-chart-line flow-icon mb-3"></i><div style="color:#ffffff;font-weight:500;">Scale</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
+  <!-- CTA BACK -->
   <section class="section-padding text-center">
     <div class="container">
-      <h2 class="cta-title">Join FlowState Studio</h2>
-      <a href="#" class="btn btn-primary btn-lg px-5 py-3 fs-2">Join FlowState Studio</a>
+      <a href="#" class="btn btn-primary btn-lg px-5 py-3 fs-2" onclick="showPage('landing')">Back to Home</a>
+      <a href="https://www.patreon.com/cw/FlowStateStudio" class="btn btn-primary btn-lg px-5 py-3 fs-2 ms-3" target="_blank">Join Now</a>
+    </div>
+  </section>
+</div>
+
+<!-- COMMUNITY PAGE -->
+<div id="community" class="page">
+  <section class="text-center section-padding">
+    <div class="container">
+      <div style="max-width:700px;margin:0 auto;">
+        <h1 class="hero-title">FlowState Community</h1>
+        <p class="hero-subtitle">Global Trade Systems + Real Business Execution</p>
+      </div>
     </div>
   </section>
 
+  <!-- GLOBAL TRADE SYSTEMS -->
+  <section class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Global Trade Systems</h2>
+      <p style="font-size:20px;color:#b3b3b3;text-align:center;margin-bottom:4rem;">Documents, tariffs, logistics, export mastery</p>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="resource-card">
+            <h3 class="resource-title">Export Documentation</h3>
+            <a href="https://www.trade.gov/learn-how-export" class="resource-link" target="_blank">US Trade: Learn How to Export</a>
+            <p style="color:#b3b3b3;margin-top:1rem;">Complete export documentation guide.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="resource-card">
+            <h3 class="resource-title">Tariffs & Logistics</h3>
+            <a href="https://www.wto.org/english/tratop_e/tariffs_e/tariffs_e.htm" class="resource-link" target="_blank">WTO: Tariffs Information</a>
+            <p style="color:#b3b3b3;margin-top:1rem;">Global tariff systems and trade rules.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REAL BUSINESS EXECUTION -->
+  <section class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Real Business Execution</h2>
+      <p style="font-size:20px;color:#b3b3b3;text-align:center;margin-bottom:4rem;">Turn knowledge into revenue systems</p>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="resource-card">
+            <h3 class="resource-title">Commodity Business Models</h3>
+            <a href="https://hbr.org/2019/01/the-commodity-trap" class="resource-link" target="_blank">Harvard Business Review: The Commodity Trap</a>
+            <p style="color:#b3b3b3;margin-top:1rem;">Building profitable commodity businesses.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="resource-card">
+            <h3 class="resource-title">Revenue Systems</h3>
+            <a href="https://www.mckinsey.com/capabilities/operations/our-insights/commodity-traders-in-transition" class="resource-link" target="_blank">McKinsey: Commodity Traders</a>
+            <p style="color:#b3b3b3;margin-top:1rem;">Scaling commodity trading operations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BACK -->
+  <section class="section-padding text-center">
+    <div class="container">
+      <a href="#" class="btn btn-primary btn-lg px-5 py-3 fs-2" onclick="showPage('landing')">Back to Home</a>
+      <a href="https://www.patreon.com/cw/FlowStateStudio" class="btn btn-primary btn-lg px-5 py-3 fs-2 ms-3" target="_blank">Join Community</a>
+    </div>
+  </section>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <p>FlowState Studio</p>
+    <p>FlowState Studio Club © 2026 | Built for Commodity Mastery</p>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // Page switching
-  document.querySelectorAll('.nav-link:not(.btn)').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = link.getAttribute('href');
-      if (target === '#explore') {
-        document.getElementById('landing').scrollIntoView({behavior: 'smooth'});
-      } else if (target === '#studio') {
-        document.getElementById('studio').style.display = 'block';
-        document.getElementById('landing').style.display = 'none';
-        document.getElementById('studio').scrollIntoView({behavior: 'smooth'});
-      }
+  function showPage(pageId) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(page => {
+      page.classList.remove('active');
     });
-  });
+    
+    // Show target page
+    document.getElementById(pageId).classList.add('active');
+    
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Update navbar active state
+    document.querySelectorAll('.nav-link, .navbar-brand').forEach(link => {
+      link.style.color = '#b3b3b3';
+    });
+  }
 
   // Navbar scroll effect
   window.addEventListener('scroll', () => {
@@ -322,6 +394,17 @@
     } else {
       navbar.style.background = '#000000';
     }
+  });
+
+  // Smooth scroll for anchor links within pages
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   });
 </script>
 
