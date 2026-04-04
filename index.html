@@ -1,196 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>RASUTH FLOW STATE STUDIO CLUB</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- React -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: 'Inter', sans-serif; 
-      background: #0f0f0f; 
-      color: #ffffff; 
-      overflow-x: hidden;
+    body {
+      background: #0f0f0f;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
     }
-    /* Patreon FlowStateStudio EXACT clone colors/gradients */
-    :root {
-      --patreon-dark: #0a0a0a;
-      --patreon-card-bg: rgba(255,255,255,0.03);
-      --patreon-border: rgba(255,255,255,0.08);
-      --patreon-gold: #feca2d;
-      --patreon-red: #ff424d;
-      --patreon-glow: rgba(254,202,45,0.3);
+
+    .hero-title {
+      font-size: 56px;
+      font-weight: 700;
     }
-    .navbar {
-      background: rgba(10,10,10,0.95) !important;
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--patreon-border);
-      padding: 1.2rem 0;
+
+    h3 {
+      font-size: 32px;
+      font-weight: 600;
     }
-    .navbar-brand { 
-      font-size: 24px; 
-      font-weight: 800; 
-      background: linear-gradient(135deg, var(--patreon-gold), #ffffff);
-      -webkit-background-clip: text;
-      background-clip: text;
+
+    p {
+      color: #b3b3b3;
+      font-size: 16px;
     }
-    .nav-link { 
-      color: rgba(255,255,255,0.8) !important; 
-      font-weight: 500; 
-      margin-right: 2.5rem;
-      transition: 0.3s;
+
+    .btn-main {
+      background: #ff424d;
+      border: none;
+      border-radius: 30px;
+      padding: 8px 20px;
     }
-    .nav-link:hover { color: var(--patreon-gold) !important; }
-    .btn-join {
-      background: linear-gradient(135deg, var(--patreon-red), #e63a45);
-      border: none !important;
-      border-radius: 30px !important;
-      padding: 12px 32px !important;
-      font-weight: 600 !important;
-      color: white !important;
-      box-shadow: 0 8px 25px rgba(255,66,77,0.4);
-      transition: all 0.3s;
+
+    .btn-main:hover {
+      background: #e63a45;
     }
-    .btn-join:hover { 
-      transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(255,66,77,0.6);
-      background: linear-gradient(135deg, #e63a45, var(--patreon-red)) !important;
-    }
-    .hero {
-      min-height: 100vh;
-      background: 
-        radial-gradient(circle at 30% 20%, var(--patreon-glow) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255,66,77,0.2) 0%, transparent 50%),
-        #0f0f0f;
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
-    .hero-title { 
-      font-size: clamp(48px, 10vw, 72px); 
-      font-weight: 900; 
-      background: linear-gradient(135deg, var(--patreon-gold), #ffffff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-    .hero-subtitle { 
-      font-size: clamp(18px, 3vw, 24px); 
-      color: rgba(255,255,255,0.85); 
-      max-width: 650px;
-      line-height: 1.6;
-    }
-    .section { padding: 8rem 0; }
-    .section-title { 
-      font-size: clamp(32px, 5vw, 42px); 
-      font-weight: 700; 
-      background: linear-gradient(135deg, #ffffff, rgba(255,255,255,0.8));
-      -webkit-background-clip: text;
-      background-clip: text;
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .content-card {
-      background: var(--patreon-card-bg);
-      border: 1px solid var(--patreon-border);
-      border-radius: 24px;
-      padding: 3rem;
-      backdrop-filter: blur(20px);
-      transition: all 0.4s;
-      height: 100%;
-    }
-    .content-card:hover {
-      border-color: var(--patreon-gold);
-      box-shadow: 0 25px 50px rgba(254,202,45,0.15);
-      transform: translateY(-8px);
-    }
-    .patreon-cta {
-      background: linear-gradient(135deg, rgba(255,66,77,0.1), rgba(254,202,45,0.05));
-      border: 1px solid var(--patreon-border);
-      border-radius: 24px;
-      padding: 6rem 2rem;
-      text-align: center;
-    }
-    footer {
-      border-top: 1px solid var(--patreon-border);
-      color: #777;
-      padding: 3rem 0;
-      text-align: center;
-    }
-    .flow-step { 
-      text-align: center; 
-      margin: 2rem 1rem;
-      opacity: 0.9;
-      transition: 0.3s;
-    }
-    .flow-step:hover { opacity: 1; transform: scale(1.05); }
-    .flow-icon { 
-      font-size: 3.5rem; 
-      background: linear-gradient(135deg, var(--patreon-gold), var(--patreon-red));
-      -webkit-background-clip: text;
-      background-clip: text;
-      margin-bottom: 1rem;
+
+    .section {
+      padding: 80px 0;
     }
   </style>
 </head>
+
 <body>
+<div id="root"></div>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">RASUTH FLOW STATE STUDIO CLUB</a>
-    <div class="navbar-nav ms-auto">
-      <a class="nav-link" href="#hero">Explore</a>
-      <a class="nav-link" href="#studio">Community</a>
-      <a class="nav-link btn-join ms-3" href="https://www.patreon.com/yourusername">Join</a>
-    </div>
-  </div>
-</nav>
+<script type="text/babel">
 
-<!-- PAGE 1: LANDING -->
-<section id="hero" class="hero pt-5" style="padding-top: 120px;">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-7 text-center">
-        <h1 class="hero-title">Enter Flow. Build Real Commodity Power.</h1>
-        <p class="hero-subtitle">Trade real commodities. Build real ventures. Stay in deep flow. Match Human Demand. Build Through Commodities. Execute in Flow.</p>
-        <div class="mt-5">
-          <a href="https://www.patreon.com/yourusername" class="btn btn-lg px-6 py-4 fs-4 fw-bold btn-join">Join FlowState Studio</a>
+function Navbar({ setPage }) {
+  return (
+    <nav className="d-flex justify-content-between align-items-center p-3" style={{background:"#000"}}>
+      <div style={{fontWeight:"bold"}}>FlowState Studio</div>
+      <div>
+        <span className="mx-3" onClick={()=>setPage('home')} style={{cursor:'pointer'}}>Explore</span>
+        <span className="mx-3" onClick={()=>setPage('studio')} style={{cursor:'pointer'}}>Community</span>
+        <button className="btn btn-main">Join</button>
+      </div>
+    </nav>
+  );
+}
+
+function Home() {
+  return (
+    <div className="container text-center">
+
+      <div className="section">
+        <h1 className="hero-title">Enter Flow. Build Real Commodity Power.</h1>
+        <p>Trade real commodities. Build real ventures. Stay in deep flow.</p>
+        <button className="btn btn-main mt-3">Join FlowState Studio</button>
+      </div>
+
+      <div className="row section align-items-center">
+        <div className="col-md-6">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" className="img-fluid rounded"/>
+        </div>
+        <div className="col-md-6 text-start">
+          <h3>Real World Commodity Execution</h3>
+          <p>From agriculture → export → value chain → global opportunity.</p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<section class="section bg-dark" style="background: rgba(15,15,15,0.8);">
-  <div class="container">
-    <div class="row align-items-center gy-5">
-      <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1558618047-3c8c76bbb17e?w=600&fit=crop" class="img-fluid rounded-3 shadow-lg" alt="Commodity trading">
-      </div>
-      <div class="col-lg-6">
-        <h2 class="display-5 fw-bold mb-4" style="color:#ffffff;">Real World Commodity Execution</h2>
-        <p class="lead mb-0" style="color:#b3b3b3;font-size:18px;">Agriculture → export → value chain. From waste → commodity → global opportunity.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Core Execution</h2>
-    <div class="row g-4">
-      <div class="col-lg-4">
-        <div class="content-card text-center">
-          <i class="fas fa-globe fa-3x mb-4" style="color:var(--patreon-gold);"></i>
-          <h3 class="h3 fw-bold mb-3">Global Trade</h3>
-          <p style="color:#b3b3b3;">Learn import/export systems</p>
+      <div className="row section text-center">
+        <div className="col-md-4">
+          <h5>🌍 Global Trade</h5>
+          <p>Learn import/export systems</p>
+        </div>
+        <div className="col-md-4">
+          <h5>🧠 Flow State</h5>
+          <p>No distraction execution system</p>
+        </div>
+        <div className="col-md-4">
+          <h5>💰 Build Ventures</h5>
+          <p>Turn waste → commodity → business</p>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="content-card text-center">
-          <i class="fas fa-brain fa-
+
+      <div className="section">
+        <h3>Work Like This</h3>
+        <p>Focus → Execute → Build → Scale</p>
+      </div>
+
+      <div className="section">
+        <h2>Enter Flow. Build Real Value.</h2>
+        <button className="btn btn-main mt-3">Start Now</button>
+      </div>
+
+    </div>
+  );
+}
+
+function Studio() {
+  return (
+    <div className="container text-center">
+
+      <div className="section">
+        <h1>Inside FlowState Studio</h1>
+        <p>Where commodities meet execution</p>
+      </div>
+
+      <div className="row section">
+        <div className="col-md-4">
+          <h5>Commodity Basics</h5>
+          <p>Understand core markets</p>
+        </div>
+        <div className="col-md-4">
+          <h5>Global Trade Systems</h5>
+          <p>Import/export frameworks</p>
+        </div>
+        <div className="col-md-4">
+          <h5>Real Business Execution</h5>
+          <p>Build real ventures</p>
+        </div>
+      </div>
+
+      <div className="row section align-items-center">
+        <div className="col-md-6 text-start">
+          <h3>Real World Application</h3>
+          <p>From farm → waste → product → export → revenue</p>
+        </div>
+        <div className="col-md-6">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952" className="img-fluid rounded"/>
+        </div>
+      </div>
+
+      <div className="section">
+        <h3>Daily Flow System</h3>
+        <p>Morning: Learning | Midday: Execution | Evening: Reflection</p>
+      </div>
+
+      <div className="section">
+        <h3>Build Income Through Commodities</h3>
+        <p>Trade → Process → Export → Scale</p>
+      </div>
+
+      <div className="section">
+        <button className="btn btn-main">Join FlowState Studio</button>
+      </div>
+
+    </div>
+  );
+}
+
+function App() {
+  const [page, setPage] = React.useState('home');
+
+  return (
+    <>
+      <Navbar setPage={setPage} />
+      {page === 'home' ? <Home /> : <Studio />}
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+</script>
+
+</body>
+</html>
