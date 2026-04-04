@@ -1,75 +1,235 @@
-import React from "react";
+// App.js - Full React + Bootstrap 2-Page Website
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
-export default function App() {
-  return (
-    <div style={{backgroundColor: "#0f0f0f", color: "#ffffff", fontFamily: "Inter, sans-serif"}}>
-
-      {/* NAVBAR */}
-      <nav className="navbar navbar-dark bg-black px-4 py-3">
-        <span className="navbar-brand fw-bold" style={{fontSize: "20px"}}>FlowState Studio</span>
-        <button className="btn" style={{backgroundColor: "#ff424d", color: "white", borderRadius: "25px", padding: "8px 20px"}}>Join</button>
-      </nav>
-
-      {/* HERO SECTION */}
-      <div className="container text-center py-5">
-        <h1 style={{fontSize: "56px", fontWeight: "700", lineHeight: "1.1"}}>
-          Enter Flow. Build Real Commodity Power.
-        </h1>
-        <p style={{fontSize: "18px", color: "#b3b3b3", maxWidth: "700px", margin: "20px auto"}}>
-          Learn real-world commodity trading and entrepreneurship while staying in deep flow state. No distractions. Only execution.
-        </p>
-        <button className="btn" style={{backgroundColor: "#ff424d", color: "white", borderRadius: "30px", padding: "12px 28px", fontSize: "18px"}}>
-          Get Started
-        </button>
+const Navbar = () => (
+  <nav className="navbar navbar-expand-lg fixed-top bg-black border-bottom" style={{borderColor: '#1f1f1f'}}>
+    <div className="container">
+      <a className="navbar-brand fw-bold fs-3 text-white" href="#/">RASUTH FLOW STATE STUDIO CLUB</a>
+      <div className="navbar-nav ms-auto">
+        <a className="nav-link text-white me-4 fs-6" href="#/">Explore</a>
+        <a className="nav-link text-white me-4 fs-6" href="#/studio">Community</a>
+        <a className="btn btn-primary px-4 py-2 rounded-4 fs-6 fw-medium" href="#/join" style={{backgroundColor: '#ff424d'}}>
+          Join
+        </a>
       </div>
+    </div>
+  </nav>
+);
 
-      {/* IMAGE + TEXT */}
-      <div className="container py-5">
-        <div className="row align-items-center">
-          <div className="col-md-6">
-            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf" className="img-fluid rounded" />
+const Page1 = () => (
+  <div className="min-vh-100 pt-5" style={{paddingTop: '120px', backgroundColor: '#0f0f0f'}}>
+    {/* Hero */}
+    <section className="py-5 text-center" style={{paddingTop: '100px'}}>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-lg-8 mx-auto">
+            <h1 className="display-2 fw-700 mb-4" style={{fontSize: '56px', fontWeight: 700, color: '#ffffff'}}>
+              Enter Flow. Build Real Commodity Power.
+            </h1>
+            <p className="fs-3 fw-light mb-5" style={{color: '#b3b3b3', fontSize: '20px'}}>
+              Trade real commodities. Build real ventures. Stay in deep flow.
+            </p>
+            <a href="#/join" className="btn px-5 py-3 fs-4 fw-semibold rounded-4" style={{backgroundColor: '#ff424d', border: 'none'}}>
+              Join FlowState Studio
+            </a>
           </div>
-          <div className="col-md-6">
-            <h2 style={{fontSize: "32px", fontWeight: "600"}}>Real Commodity Execution</h2>
-            <p style={{color: "#b3b3b3"}}>
-              From agricultural waste to global exports — build real businesses aligned with human demand.
+        </div>
+      </div>
+    </section>
+
+    {/* Visual Section */}
+    <section className="py-5">
+      <div className="container">
+        <div className="row align-items-center gy-5">
+          <div className="col-lg-6">
+            <div className="bg-dark rounded-4 p-5" style={{backgroundColor: '#1f1f1f'}}>
+              <img src="https://images.unsplash.com/photo-1558618047-3c8c76bbb17e?w=600" className="img-fluid rounded-3" alt="Commodity trade" />
+            </div>
+          </div>
+          <div className="col-lg-6">
+            <h2 className="fw-600 mb-4" style={{fontSize: '36px', color: '#ffffff'}}>Real World Commodity Execution</h2>
+            <p className="fs-5 mb-4" style={{color: '#b3b3b3', fontSize: '18px'}}>
+              Agriculture → processing → export → value chain. Match perpetual human demand with commodities that scale.
             </p>
           </div>
         </div>
       </div>
+    </section>
 
-      {/* FEATURES */}
-      <div className="container py-5">
-        <div className="row text-center">
+    {/* 3 Core Blocks */}
+    <section className="py-5">
+      <div className="container">
+        <div className="row g-5 text-center">
           <div className="col-md-4">
-            <h3 style={{fontSize: "22px"}}>🌍 Global Trade</h3>
-            <p style={{color: "#b3b3b3"}}>Import, export and build cross-border supply chains.</p>
+            <div className="p-5">
+              <i className="fas fa-globe display-4 text-white mb-4"></i>
+              <h3 className="fw-600 mb-3" style={{fontSize: '32px', color: '#ffffff'}}>Global Trade</h3>
+              <p className="fs-5" style={{color: '#b3b3b3'}}>Learn import/export systems</p>
+            </div>
           </div>
           <div className="col-md-4">
-            <h3 style={{fontSize: "22px"}}>🧠 Flow State</h3>
-            <p style={{color: "#b3b3b3"}}>Deep focus execution without distraction.</p>
+            <div className="p-5">
+              <i className="fas fa-brain display-4 text-white mb-4"></i>
+              <h3 className="fw-600 mb-3" style={{fontSize: '32px', color: '#ffffff'}}>Flow State</h3>
+              <p className="fs-5" style={{color: '#b3b3b3'}}>No distraction execution system</p>
+            </div>
           </div>
           <div className="col-md-4">
-            <h3 style={{fontSize: "22px"}}>💰 Build Ventures</h3>
-            <p style={{color: "#b3b3b3"}}>Turn ideas into real commodity businesses.</p>
+            <div className="p-5">
+              <i className="fas fa-building display-4 text-white mb-4"></i>
+              <h3 className="fw-600 mb-3" style={{fontSize: '32px', color: '#ffffff'}}>Build Ventures</h3>
+              <p className="fs-5" style={{color: '#b3b3b3'}}>Turn waste → commodity → business</p>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      {/* CTA */}
-      <div className="container text-center py-5">
-        <h2 style={{fontSize: "36px", fontWeight: "600"}}>Join FlowState Studio</h2>
-        <button className="btn" style={{backgroundColor: "#ff424d", color: "white", borderRadius: "30px", padding: "12px 30px"}}>
-          Enter Now
-        </button>
+    {/* Flow State Section */}
+    <section className="py-5">
+      <div className="container text-center">
+        <h2 className="fw-600 mb-5" style={{fontSize: '36px', color: '#ffffff'}}>Work Like This</h2>
+        <div className="row g-4 justify-content-center">
+          <div className="col-md-2"><i className="fas fa-bullseye display-4 text-white"></i><p className="mt-3 fw-medium" style={{color: '#b3b3b3'}}>Focus</p></div>
+          <div className="col-md-2"><i className="fas fa-hammer display-4 text-white"></i><p className="mt-3 fw-medium" style={{color: '#b3b3b3'}}>Execute</p></div>
+          <div className="col-md-2"><i className="fas fa-cubes display-4 text-white"></i><p className="mt-3 fw-medium" style={{color: '#b3b3b3'}}>Build</p></div>
+          <div className="col-md-2"><i className="fas fa-rocket display-4 text-white"></i><p className="mt-3 fw-medium" style={{color: '#b3b3b3'}}>Scale</p></div>
+        </div>
       </div>
+    </section>
 
-      {/* FOOTER */}
-      <footer className="text-center py-4" style={{color: "#777"}}>
-        © FlowState Studio
-      </footer>
+    {/* CTA */}
+    <section className="py-5 text-center">
+      <div className="container">
+        <h2 className="display-3 fw-600 mb-4" style={{color: '#ffffff'}}>Enter Flow. Build Real Value.</h2>
+        <a href="#/join" className="btn px-5 py-3 fs-3 fw-semibold rounded-4" style={{backgroundColor: '#ff424d', border: 'none'}}>
+          Start Now
+        </a>
+      </div>
+    </section>
 
+    <footer className="text-center py-5 border-top" style={{borderColor: '#1f1f1f', color: '#777'}}>
+      <p className="mb-0 fs-6">RASUTH FLOW STATE STUDIO CLUB</p>
+    </footer>
+  </div>
+);
+
+const Page2 = () => (
+  <div className="min-vh-100 pt-5" style={{paddingTop: '120px', backgroundColor: '#0f0f0f'}}>
+    {/* Header */}
+    <section className="text-center py-5">
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-lg-8 mx-auto">
+            <h1 className="display-2 fw-600 mb-4" style={{fontSize: '56px', color: '#ffffff'}}>
+              Inside FlowState Studio
+            </h1>
+            <p className="fs-3 fw-light" style={{color: '#b3b3b3', fontSize: '20px'}}>
+              Where commodities meet execution
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Learning Tracks */}
+    <section className="py-5">
+      <div className="container">
+        <div className="row g-5">
+          <div className="col-md-4 text-center">
+            <h3 className="fw-600 mb-4" style={{fontSize: '32px', color: '#ffffff'}}>Commodity Basics</h3>
+            <p className="fs-5" style={{color: '#b3b3b3'}}>Master sourcing, processing, and market demand</p>
+          </div>
+          <div className="col-md-4 text-center">
+            <h3 className="fw-600 mb-4" style={{fontSize: '32px', color: '#ffffff'}}>Global Trade Systems</h3>
+            <p className="fs-5" style={{color: '#b3b3b3'}}>Documents, tariffs, logistics, export mastery</p>
+          </div>
+          <div className="col-md-4 text-center">
+            <h3 className="fw-600 mb-4" style={{fontSize: '32px', color: '#ffffff'}}>Real Business Execution</h3>
+            <p className="fs-5" style={{color: '#b3b3b3'}}>Turn knowledge into revenue-generating systems</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Real World Application */}
+    <section className="py-5">
+      <div className="container">
+        <div className="row align-items-center gy-5">
+          <div className="col-lg-6">
+            <h2 className="fw-600 mb-4" style={{fontSize: '36px', color: '#ffffff'}}>
+              From farm → waste → product → export → revenue
+            </h2>
+            <p className="fs-5 mb-0" style={{color: '#b3b3b3'}}>
+              Real commodity chains. Real human demand. Perpetual opportunity.
+            </p>
+          </div>
+          <div className="col-lg-6">
+            <div className="bg-dark rounded-4 p-5" style={{backgroundColor: '#1f1f1f'}}>
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600" className="img-fluid rounded-3" alt="Commodity chain" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Daily Flow System */}
+    <section className="py-5">
+      <div className="container text-center">
+        <h2 className="fw-600 mb-5" style={{fontSize: '36px', color: '#ffffff'}}>Daily Flow System</h2>
+        <div className="row g-4 justify-content-center">
+          <div className="col-md-3"><i className="fas fa-sun display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Morning: Learning</h4></div>
+          <div className="col-md-3"><i className="fas fa-hammer display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Midday: Execution</h4></div>
+          <div className="col-md-3"><i className="fas fa-book display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Evening: Reflection</h4></div>
+        </div>
+      </div>
+    </section>
+
+    {/* Monetization */}
+    <section className="py-5">
+      <div className="container">
+        <h2 className="fw-600 mb-5 text-center" style={{fontSize: '36px', color: '#ffffff'}}>Build Income Through Commodities</h2>
+        <div className="row g-4 text-center">
+          <div className="col-md-3"><i className="fas fa-exchange-alt display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Trade</h4></div>
+          <div className="col-md-3"><i className="fas fa-industry display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Process</h4></div>
+          <div className="col-md-3"><i className="fas fa-plane display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Export</h4></div>
+          <div className="col-md-3"><i className="fas fa-chart-line display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Scale</h4></div>
+        </div>
+      </div>
+    </section>
+
+    {/* Final CTA */}
+    <section className="py-5 text-center">
+      <div className="container">
+        <h2 className="display-3 fw-600 mb-4" style={{color: '#ffffff'}}>Join FlowState Studio</h2>
+        <a href="#/join" className="btn px-5 py-3 fs-3 fw-semibold rounded-4" style={{backgroundColor: '#ff424d', border: 'none'}}>
+          Join FlowState Studio
+        </a>
+      </div>
+    </section>
+
+    <footer className="text-center py-5 border-top" style={{borderColor: '#1f1f1f', color: '#777'}}>
+      <p className="mb-0 fs-6">RASUTH FLOW STATE STUDIO CLUB</p>
+    </footer>
+  </div>
+);
+
+function App() {
+  const [page, setPage] = useState('home');
+
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+  }, []);
+
+  return (
+    <div className="App" style={{fontFamily: 'Inter, -apple-system, sans-serif'}}>
+      <Navbar />
+      {page === 'home' && <Page1 />}
+      {page === 'studio' && <Page2 />}
     </div>
   );
 }
+
+export default App;
