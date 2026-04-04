@@ -1,235 +1,329 @@
-// App.js - Full React + Bootstrap 2-Page Website
-import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RASUTH FLOW STATE STUDIO CLUB</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background: #0f0f0f; 
+      color: #ffffff; 
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    .navbar {
+      background: #000000 !important;
+      border-bottom: 1px solid #1f1f1f;
+      padding: 1rem 0;
+    }
+    .navbar-brand { 
+      font-size: 20px; 
+      font-weight: 700; 
+      color: #ffffff !important; 
+    }
+    .nav-link { 
+      color: #b3b3b3 !important; 
+      font-size: 16px; 
+      font-weight: 500; 
+      margin-right: 2rem;
+    }
+    .nav-link:hover { color: #ff424d !important; }
+    .btn-primary {
+      background: #ff424d !important;
+      border: none !important;
+      border-radius: 30px !important;
+      padding: 8px 20px !important;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover { 
+      background: #e63a45 !important;
+      transform: translateY(-1px);
+    }
+    .hero-title { 
+      font-size: 56px; 
+      font-weight: 700; 
+      color: #ffffff;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .hero-subtitle { 
+      font-size: 20px; 
+      color: #b3b3b3; 
+      max-width: 700px; 
+      margin: 0 auto 3rem;
+    }
+    .section-title { 
+      font-size: 36px; 
+      font-weight: 600; 
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-padding { padding: 6rem 0; }
+    .core-block { 
+      text-align: center; 
+      padding: 3rem 0; 
+      margin: 2rem 0;
+    }
+    .core-title { 
+      font-size: 32px; 
+      font-weight: 600; 
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+    .core-text { 
+      font-size: 18px; 
+      color: #b3b3b3; 
+    }
+    .flow-step { 
+      margin: 2rem 0; 
+      text-align: center;
+    }
+    .flow-icon { 
+      font-size: 3rem; 
+      color: #ffffff; 
+      margin-bottom: 1rem; 
+    }
+    .cta-title { 
+      font-size: 48px; 
+      font-weight: 600; 
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    footer { 
+      border-top: 1px solid #1f1f1f; 
+      color: #777; 
+      padding: 3rem 0; 
+      text-align: center; 
+      font-size: 14px;
+    }
+    .img-section img { 
+      width: 100%; 
+      height: 400px; 
+      object-fit: cover; 
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
 
-const Navbar = () => (
-  <nav className="navbar navbar-expand-lg fixed-top bg-black border-bottom" style={{borderColor: '#1f1f1f'}}>
-    <div className="container">
-      <a className="navbar-brand fw-bold fs-3 text-white" href="#/">RASUTH FLOW STATE STUDIO CLUB</a>
-      <div className="navbar-nav ms-auto">
-        <a className="nav-link text-white me-4 fs-6" href="#/">Explore</a>
-        <a className="nav-link text-white me-4 fs-6" href="#/studio">Community</a>
-        <a className="btn btn-primary px-4 py-2 rounded-4 fs-6 fw-medium" href="#/join" style={{backgroundColor: '#ff424d'}}>
-          Join
-        </a>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">FlowState Studio Club</a>
+    <div class="navbar-nav ms-auto">
+      <a class="nav-link" href="#explore">Explore</a>
+      <a class="nav-link" href="#studio">Community</a>
+      <a class="nav-link btn btn-primary" href="#join">Join</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE 1: LANDING -->
+<div id="landing" style="padding-top: 100px;">
+
+  <!-- HERO -->
+  <section class="text-center section-padding">
+    <div class="container">
+      <h1 class="hero-title">Enter Flow. Build Real Commodity Power.</h1>
+      <p class="hero-subtitle">Trade real commodities. Build real ventures. Stay in deep flow.</p>
+      <a href="#join" class="btn btn-primary btn-lg px-5 py-3 fs-4">Join FlowState Studio</a>
+    </div>
+  </section>
+
+  <!-- VISUAL SECTION -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4">
+          <img src="https://images.unsplash.com/photo-1558618047-3c8c76bbb17e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commodity trade" class="img-section">
+        </div>
+        <div class="col-lg-6">
+          <h2 class="fw-600 mb-4" style="font-size:36px;color:#ffffff;">Real World Commodity Execution</h2>
+          <p class="fs-5" style="color:#b3b3b3;font-size:18px;">
+            Agriculture → export → value chain. Match perpetual human demand through commodities that move markets.
+          </p>
+        </div>
       </div>
     </div>
-  </nav>
-);
+  </section>
 
-const Page1 = () => (
-  <div className="min-vh-100 pt-5" style={{paddingTop: '120px', backgroundColor: '#0f0f0f'}}>
-    {/* Hero */}
-    <section className="py-5 text-center" style={{paddingTop: '100px'}}>
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-8 mx-auto">
-            <h1 className="display-2 fw-700 mb-4" style={{fontSize: '56px', fontWeight: 700, color: '#ffffff'}}>
-              Enter Flow. Build Real Commodity Power.
-            </h1>
-            <p className="fs-3 fw-light mb-5" style={{color: '#b3b3b3', fontSize: '20px'}}>
-              Trade real commodities. Build real ventures. Stay in deep flow.
-            </p>
-            <a href="#/join" className="btn px-5 py-3 fs-4 fw-semibold rounded-4" style={{backgroundColor: '#ff424d', border: 'none'}}>
-              Join FlowState Studio
-            </a>
+  <!-- 3 CORE BLOCKS -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="core-block">
+            <i class="fas fa-globe" style="font-size:4rem;color:#ffffff;"></i>
+            <h3 class="core-title">Global Trade</h3>
+            <p class="core-text">Learn import/export systems</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="core-block">
+            <i class="fas fa-brain" style="font-size:4rem;color:#ffffff;"></i>
+            <h3 class="core-title">Flow State</h3>
+            <p class="core-text">No distraction execution system</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="core-block">
+            <i class="fas fa-building" style="font-size:4rem;color:#ffffff;"></i>
+            <h3 class="core-title">Build Ventures</h3>
+            <p class="core-text">Turn waste → commodity → business</p>
           </div>
         </div>
       </div>
-    </section>
-
-    {/* Visual Section */}
-    <section className="py-5">
-      <div className="container">
-        <div className="row align-items-center gy-5">
-          <div className="col-lg-6">
-            <div className="bg-dark rounded-4 p-5" style={{backgroundColor: '#1f1f1f'}}>
-              <img src="https://images.unsplash.com/photo-1558618047-3c8c76bbb17e?w=600" className="img-fluid rounded-3" alt="Commodity trade" />
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <h2 className="fw-600 mb-4" style={{fontSize: '36px', color: '#ffffff'}}>Real World Commodity Execution</h2>
-            <p className="fs-5 mb-4" style={{color: '#b3b3b3', fontSize: '18px'}}>
-              Agriculture → processing → export → value chain. Match perpetual human demand with commodities that scale.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* 3 Core Blocks */}
-    <section className="py-5">
-      <div className="container">
-        <div className="row g-5 text-center">
-          <div className="col-md-4">
-            <div className="p-5">
-              <i className="fas fa-globe display-4 text-white mb-4"></i>
-              <h3 className="fw-600 mb-3" style={{fontSize: '32px', color: '#ffffff'}}>Global Trade</h3>
-              <p className="fs-5" style={{color: '#b3b3b3'}}>Learn import/export systems</p>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="p-5">
-              <i className="fas fa-brain display-4 text-white mb-4"></i>
-              <h3 className="fw-600 mb-3" style={{fontSize: '32px', color: '#ffffff'}}>Flow State</h3>
-              <p className="fs-5" style={{color: '#b3b3b3'}}>No distraction execution system</p>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="p-5">
-              <i className="fas fa-building display-4 text-white mb-4"></i>
-              <h3 className="fw-600 mb-3" style={{fontSize: '32px', color: '#ffffff'}}>Build Ventures</h3>
-              <p className="fs-5" style={{color: '#b3b3b3'}}>Turn waste → commodity → business</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* Flow State Section */}
-    <section className="py-5">
-      <div className="container text-center">
-        <h2 className="fw-600 mb-5" style={{fontSize: '36px', color: '#ffffff'}}>Work Like This</h2>
-        <div className="row g-4 justify-content-center">
-          <div className="col-md-2"><i className="fas fa-bullseye display-4 text-white"></i><p className="mt-3 fw-medium" style={{color: '#b3b3b3'}}>Focus</p></div>
-          <div className="col-md-2"><i className="fas fa-hammer display-4 text-white"></i><p className="mt-3 fw-medium" style={{color: '#b3b3b3'}}>Execute</p></div>
-          <div className="col-md-2"><i className="fas fa-cubes display-4 text-white"></i><p className="mt-3 fw-medium" style={{color: '#b3b3b3'}}>Build</p></div>
-          <div className="col-md-2"><i className="fas fa-rocket display-4 text-white"></i><p className="mt-3 fw-medium" style={{color: '#b3b3b3'}}>Scale</p></div>
-        </div>
-      </div>
-    </section>
-
-    {/* CTA */}
-    <section className="py-5 text-center">
-      <div className="container">
-        <h2 className="display-3 fw-600 mb-4" style={{color: '#ffffff'}}>Enter Flow. Build Real Value.</h2>
-        <a href="#/join" className="btn px-5 py-3 fs-3 fw-semibold rounded-4" style={{backgroundColor: '#ff424d', border: 'none'}}>
-          Start Now
-        </a>
-      </div>
-    </section>
-
-    <footer className="text-center py-5 border-top" style={{borderColor: '#1f1f1f', color: '#777'}}>
-      <p className="mb-0 fs-6">RASUTH FLOW STATE STUDIO CLUB</p>
-    </footer>
-  </div>
-);
-
-const Page2 = () => (
-  <div className="min-vh-100 pt-5" style={{paddingTop: '120px', backgroundColor: '#0f0f0f'}}>
-    {/* Header */}
-    <section className="text-center py-5">
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-8 mx-auto">
-            <h1 className="display-2 fw-600 mb-4" style={{fontSize: '56px', color: '#ffffff'}}>
-              Inside FlowState Studio
-            </h1>
-            <p className="fs-3 fw-light" style={{color: '#b3b3b3', fontSize: '20px'}}>
-              Where commodities meet execution
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* Learning Tracks */}
-    <section className="py-5">
-      <div className="container">
-        <div className="row g-5">
-          <div className="col-md-4 text-center">
-            <h3 className="fw-600 mb-4" style={{fontSize: '32px', color: '#ffffff'}}>Commodity Basics</h3>
-            <p className="fs-5" style={{color: '#b3b3b3'}}>Master sourcing, processing, and market demand</p>
-          </div>
-          <div className="col-md-4 text-center">
-            <h3 className="fw-600 mb-4" style={{fontSize: '32px', color: '#ffffff'}}>Global Trade Systems</h3>
-            <p className="fs-5" style={{color: '#b3b3b3'}}>Documents, tariffs, logistics, export mastery</p>
-          </div>
-          <div className="col-md-4 text-center">
-            <h3 className="fw-600 mb-4" style={{fontSize: '32px', color: '#ffffff'}}>Real Business Execution</h3>
-            <p className="fs-5" style={{color: '#b3b3b3'}}>Turn knowledge into revenue-generating systems</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* Real World Application */}
-    <section className="py-5">
-      <div className="container">
-        <div className="row align-items-center gy-5">
-          <div className="col-lg-6">
-            <h2 className="fw-600 mb-4" style={{fontSize: '36px', color: '#ffffff'}}>
-              From farm → waste → product → export → revenue
-            </h2>
-            <p className="fs-5 mb-0" style={{color: '#b3b3b3'}}>
-              Real commodity chains. Real human demand. Perpetual opportunity.
-            </p>
-          </div>
-          <div className="col-lg-6">
-            <div className="bg-dark rounded-4 p-5" style={{backgroundColor: '#1f1f1f'}}>
-              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600" className="img-fluid rounded-3" alt="Commodity chain" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* Daily Flow System */}
-    <section className="py-5">
-      <div className="container text-center">
-        <h2 className="fw-600 mb-5" style={{fontSize: '36px', color: '#ffffff'}}>Daily Flow System</h2>
-        <div className="row g-4 justify-content-center">
-          <div className="col-md-3"><i className="fas fa-sun display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Morning: Learning</h4></div>
-          <div className="col-md-3"><i className="fas fa-hammer display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Midday: Execution</h4></div>
-          <div className="col-md-3"><i className="fas fa-book display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Evening: Reflection</h4></div>
-        </div>
-      </div>
-    </section>
-
-    {/* Monetization */}
-    <section className="py-5">
-      <div className="container">
-        <h2 className="fw-600 mb-5 text-center" style={{fontSize: '36px', color: '#ffffff'}}>Build Income Through Commodities</h2>
-        <div className="row g-4 text-center">
-          <div className="col-md-3"><i className="fas fa-exchange-alt display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Trade</h4></div>
-          <div className="col-md-3"><i className="fas fa-industry display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Process</h4></div>
-          <div className="col-md-3"><i className="fas fa-plane display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Export</h4></div>
-          <div className="col-md-3"><i className="fas fa-chart-line display-4 text-white mb-3"></i><h4 className="fw-medium" style={{color: '#ffffff'}}>Scale</h4></div>
-        </div>
-      </div>
-    </section>
-
-    {/* Final CTA */}
-    <section className="py-5 text-center">
-      <div className="container">
-        <h2 className="display-3 fw-600 mb-4" style={{color: '#ffffff'}}>Join FlowState Studio</h2>
-        <a href="#/join" className="btn px-5 py-3 fs-3 fw-semibold rounded-4" style={{backgroundColor: '#ff424d', border: 'none'}}>
-          Join FlowState Studio
-        </a>
-      </div>
-    </section>
-
-    <footer className="text-center py-5 border-top" style={{borderColor: '#1f1f1f', color: '#777'}}>
-      <p className="mb-0 fs-6">RASUTH FLOW STATE STUDIO CLUB</p>
-    </footer>
-  </div>
-);
-
-function App() {
-  const [page, setPage] = useState('home');
-
-  useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth';
-  }, []);
-
-  return (
-    <div className="App" style={{fontFamily: 'Inter, -apple-system, sans-serif'}}>
-      <Navbar />
-      {page === 'home' && <Page1 />}
-      {page === 'studio' && <Page2 />}
     </div>
-  );
-}
+  </section>
 
-export default App;
+  <!-- FLOW STATE SECTION -->
+  <section class="section-padding" id="explore">
+    <div class="container">
+      <h2 class="section-title">Work Like This</h2>
+      <div class="row g-5 justify-content-center">
+        <div class="col-auto flow-step"><i class="fas fa-bullseye flow-icon"></i><div style="color:#ffffff;font-weight:500;">Focus</div></div>
+        <div class="col-auto flow-step"><i class="fas fa-hammer flow-icon"></i><div style="color:#ffffff;font-weight:500;">Execute</div></div>
+        <div class="col-auto flow-step"><i class="fas fa-cubes flow-icon"></i><div style="color:#ffffff;font-weight:500;">Build</div></div>
+        <div class="col-auto flow-step"><i class="fas fa-rocket flow-icon"></i><div style="color:#ffffff;font-weight:500;">Scale</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding text-center" id="join">
+    <div class="container">
+      <h2 class="cta-title">Enter Flow. Build Real Value.</h2>
+      <a href="#" class="btn btn-primary btn-lg px-5 py-3 fs-2">Start Now</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- PAGE 2: STUDIO -->
+<div id="studio" style="display:none;padding-top:100px;">
+
+  <!-- HEADER -->
+  <section class="text-center section-padding">
+    <div class="container">
+      <div style="max-width:700px;margin:0 auto;">
+        <h1 class="hero-title">Inside FlowState Studio</h1>
+        <p class="hero-subtitle">Where commodities meet execution</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNING TRACKS -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row g-5 text-center">
+        <div class="col-md-4">
+          <h3 style="font-size:32px;font-weight:600;color:#ffffff;margin-bottom:1rem;">Commodity Basics</h3>
+          <p style="font-size:18px;color:#b3b3b3;">Master sourcing, processing, market demand</p>
+        </div>
+        <div class="col-md-4">
+          <h3 style="font-size:32px;font-weight:600;color:#ffffff;margin-bottom:1rem;">Global Trade Systems</h3>
+          <p style="font-size:18px;color:#b3b3b3;">Documents, tariffs, logistics, export mastery</p>
+        </div>
+        <div class="col-md-4">
+          <h3 style="font-size:32px;font-weight:600;color:#ffffff;margin-bottom:1rem;">Real Business Execution</h3>
+          <p style="font-size:18px;color:#b3b3b3;">Turn knowledge into revenue systems</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REAL WORLD APPLICATION -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6 order-lg-2">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commodity chain" class="img-section">
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <h2 class="fw-600 mb-4" style="font-size:36px;color:#ffffff;">From farm → waste → product → export → revenue</h2>
+          <p class="fs-5 mb-0" style="color:#b3b3b3;font-size:18px;">Real commodity chains. Real human demand. Perpetual opportunity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAILY FLOW SYSTEM -->
+  <section class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Daily Flow System</h2>
+      <div class="row g-4 justify-content-center text-center">
+        <div class="col-md-3"><i class="fas fa-sun flow-icon mb-3"></i><h4 style="color:#ffffff;font-weight:500;">Morning: Learning</h4></div>
+        <div class="col-md-3"><i class="fas fa-hammer flow-icon mb-3"></i><h4 style="color:#ffffff;font-weight:500;">Midday: Execution</h4></div>
+        <div class="col-md-3"><i class="fas fa-book flow-icon mb-3"></i><h4 style="color:#ffffff;font-weight:500;">Evening: Reflection</h4></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MONETIZATION -->
+  <section class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Build Income Through Commodities</h2>
+      <div class="row g-4 justify-content-center text-center">
+        <div class="col-md-2"><i class="fas fa-exchange-alt flow-icon mb-3"></i><div style="color:#ffffff;font-weight:500;">Trade</div></div>
+        <div class="col-md-2"><i class="fas fa-industry flow-icon mb-3"></i><div style="color:#ffffff;font-weight:500;">Process</div></div>
+        <div class="col-md-2"><i class="fas fa-plane flow-icon mb-3"></i><div style="color:#ffffff;font-weight:500;">Export</div></div>
+        <div class="col-md-2"><i class="fas fa-chart-line flow-icon mb-3"></i><div style="color:#ffffff;font-weight:500;">Scale</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section-padding text-center">
+    <div class="container">
+      <h2 class="cta-title">Join FlowState Studio</h2>
+      <a href="#" class="btn btn-primary btn-lg px-5 py-3 fs-2">Join FlowState Studio</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>FlowState Studio</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Page switching
+  document.querySelectorAll('.nav-link:not(.btn)').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = link.getAttribute('href');
+      if (target === '#explore') {
+        document.getElementById('landing').scrollIntoView({behavior: 'smooth'});
+      } else if (target === '#studio') {
+        document.getElementById('studio').style.display = 'block';
+        document.getElementById('landing').style.display = 'none';
+        document.getElementById('studio').scrollIntoView({behavior: 'smooth'});
+      }
+    });
+  });
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 100) {
+      navbar.style.background = 'rgba(0,0,0,0.95)';
+    } else {
+      navbar.style.background = '#000000';
+    }
+  });
+</script>
+
+</body>
+</html>
