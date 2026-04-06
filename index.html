@@ -15,86 +15,74 @@ body {
   color: #ffffff;
 }
 
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: auto;
-}
-
 /* NAVBAR */
 .navbar {
-  background: #000;
-  border-bottom: 1px solid #1f1f1f;
   position: sticky;
   top: 0;
+  background: #000;
+  border-bottom: 1px solid #1f1f1f;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
   z-index: 1000;
 }
 
-.nav {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  padding: 15px;
+.nav-title {
+  font-weight: 700;
+  font-size: 18px;
 }
 
-.nav button {
-  background: none;
-  border: none;
-  color: #b3b3b3;
-  font-size: 16px;
+.nav-tabs span {
+  margin-left: 20px;
   cursor: pointer;
+  color: #b3b3b3;
+  transition: 0.3s;
 }
 
-.nav button:hover {
-  color: #fff;
-}
-
-.nav button.active {
+.nav-tabs span:hover,
+.active-tab {
   color: #ff424d;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
 /* HEADER */
 header {
-  padding: 60px 0;
   text-align: center;
-  border-bottom: 1px solid #1f1f1f;
+  margin-bottom: 40px;
 }
 
-h1 { font-size: 48px; }
-h2 { font-size: 28px; }
-
-p {
-  color: #b3b3b3;
-  font-size: 18px;
+h1 {
+  font-size: 48px;
 }
 
 .tagline {
   color: #ff424d;
-  font-size: 20px;
+  font-size: 18px;
 }
 
-/* SECTIONS */
-.section {
-  display: none;
-  padding: 40px 0;
-}
-
-.section.active {
-  display: block;
-}
-
+/* CARD */
 .card {
   background: #151515;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 /* BUTTON */
 .btn {
-  display: inline-block;
   background: #ff424d;
-  color: white;
+  color: #fff;
   padding: 10px 20px;
   border-radius: 25px;
   text-decoration: none;
@@ -102,6 +90,40 @@ p {
 
 .btn:hover {
   background: #e63a45;
+}
+
+/* TAB CONTENT */
+.tab {
+  display: none;
+  animation: fade 0.5s ease;
+}
+
+.active {
+  display: block;
+}
+
+@keyframes fade {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* FLOATING EFFECT */
+.floating {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: rgba(255,66,77,0.05);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: float 8s infinite ease-in-out;
+}
+
+.f1 { top: 10%; left: 5%; }
+.f2 { bottom: 10%; right: 5%; }
+
+@keyframes float {
+  0%,100% {transform: translateY(0);}
+  50% {transform: translateY(-30px);}
 }
 
 /* FOOTER */
@@ -115,89 +137,104 @@ footer {
 
 <body>
 
+<!-- FLOATING BACKGROUND -->
+<div class="floating f1"></div>
+<div class="floating f2"></div>
+
 <!-- NAVBAR -->
 <div class="navbar">
-  <div class="nav">
-    <button class="tab active" onclick="showTab('about')">About</button>
-    <button class="tab" onclick="showTab('education')">Education</button>
-    <button class="tab" onclick="showTab('interests')">Interests</button>
-    <button class="tab" onclick="showTab('work')">Work</button>
-    <button class="tab" onclick="showTab('philosophy')">Philosophy</button>
-    <button class="tab" onclick="showTab('connect')">Connect</button>
+  <div class="nav-title">Flow State</div>
+  <div class="nav-tabs">
+    <span onclick="showTab('about')" class="active-tab">About</span>
+    <span onclick="showTab('education')">Education</span>
+    <span onclick="showTab('interests')">Interests</span>
+    <span onclick="showTab('work')">Work</span>
+    <span onclick="showTab('philosophy')">Philosophy</span>
+    <span onclick="showTab('connect')">Connect</span>
   </div>
 </div>
-
-<header>
-  <div class="container">
-    <h1>Rasuth Gowda</h1>
-    <p class="tagline">Match Human Demand. Build Through Commodities. Execute in Flow.</p>
-  </div>
-</header>
 
 <div class="container">
 
+<header>
+  <h1>Rasuth Gowda</h1>
+  <p class="tagline">Match Human Demand. Build Through Commodities. Execute in Flow.</p>
+</header>
+
 <!-- ABOUT -->
-<div id="about" class="section active">
-  <h2>About Me</h2>
-  <p>I am an emerging entrepreneur focused on building real-world systems through commodities and global trade.</p>
+<div id="about" class="tab active">
+  <div class="card">
+    <h2>About Me</h2>
+    <p>
+      I focus on building real-world systems through commodities, global trade, and execution.
+      My approach combines strategy, demand mapping, and deep flow-state work.
+    </p>
+  </div>
 </div>
 
 <!-- EDUCATION -->
-<div id="education" class="section">
-  <h2>Education</h2>
+<div id="education" class="tab">
   <div class="card">
+    <h2>Education</h2>
     <p><strong>Jain University</strong></p>
-    <p>Business + real-world execution mindset.</p>
+    <p>Business-oriented learning with strong real-world execution focus.</p>
   </div>
 </div>
 
 <!-- INTERESTS -->
-<div id="interests" class="section">
-  <h2>Core Interests</h2>
+<div id="interests" class="tab">
   <div class="card">
-    <p>Commodity Trading</p>
-    <p>Waste → Value Systems</p>
-    <p>Entrepreneurship</p>
-    <p>Flow State</p>
+    <h2>Core Interests</h2>
+    <p>• Commodity Trading</p>
+    <p>• Global Markets</p>
+    <p>• Waste → Value Systems</p>
+    <p>• Flow State Systems</p>
+    <p>• Future Economics</p>
   </div>
 </div>
 
 <!-- WORK -->
-<div id="work" class="section">
-  <h2>What I’m Building</h2>
+<div id="work" class="tab">
   <div class="card">
+    <h2>What I’m Building</h2>
     <p>Waste → Commodity → Product → Global Market</p>
+    <p>Turning overlooked materials into scalable business systems.</p>
   </div>
 </div>
 
 <!-- PHILOSOPHY -->
-<div id="philosophy" class="section">
-  <h2>Philosophy</h2>
+<div id="philosophy" class="tab">
   <div class="card">
+    <h2>Philosophy</h2>
     <p>Execution > Information</p>
+    <p>Systems > Theory</p>
     <p>Flow > Distraction</p>
   </div>
 </div>
 
 <!-- CONNECT -->
-<div id="connect" class="section">
-  <h2>Connect</h2>
-  <a href="https://www.linkedin.com/in/rasuthgowda/" target="_blank" class="btn">LinkedIn</a>
+<div id="connect" class="tab">
+  <div class="card">
+    <h2>Connect</h2>
+    <a href="https://www.linkedin.com/in/rasuthgowda/" target="_blank" class="btn">
+      View LinkedIn
+    </a>
+  </div>
 </div>
 
 </div>
 
 <footer>
-  <p>© 2026 Rasuth Gowda</p>
+  © 2026 Rasuth Gowda | Flow State Builder
 </footer>
 
 <script>
-function showTab(tabId) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.getElementById(tabId).classList.add('active');
+function showTab(id) {
+  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+  document.querySelectorAll('.nav-tabs span').forEach(tab => tab.classList.remove('active-tab'));
+  event.target.classList.add('active-tab');
 }
 </script>
 
