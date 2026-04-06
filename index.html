@@ -1,90 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rasuth Gowda | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rasuth Gowda | Portfolio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #0f0f0f;
-      color: #ffffff;
-      line-height: 1.6;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0f0f0f;
+  color: #ffffff;
+}
 
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: auto;
-    }
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
 
-    header {
-      padding: 60px 0;
-      text-align: center;
-      border-bottom: 1px solid #1f1f1f;
-    }
+/* NAVBAR */
+.navbar {
+  background: #000;
+  border-bottom: 1px solid #1f1f1f;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px;
+}
 
-    h2 {
-      font-size: 28px;
-      margin-top: 50px;
-      margin-bottom: 20px;
-    }
+.nav button {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-    p {
-      color: #b3b3b3;
-      font-size: 18px;
-    }
+.nav button:hover {
+  color: #fff;
+}
 
-    .tagline {
-      font-size: 20px;
-      color: #ff424d;
-    }
+.nav button.active {
+  color: #ff424d;
+}
 
-    .section {
-      padding: 40px 0;
-      border-bottom: 1px solid #1f1f1f;
-    }
+/* HEADER */
+header {
+  padding: 60px 0;
+  text-align: center;
+  border-bottom: 1px solid #1f1f1f;
+}
 
-    .card {
-      background: #151515;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
+h1 { font-size: 48px; }
+h2 { font-size: 28px; }
 
-    .btn {
-      display: inline-block;
-      background: #ff424d;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 25px;
-      text-decoration: none;
-      margin-top: 15px;
-    }
+p {
+  color: #b3b3b3;
+  font-size: 18px;
+}
 
-    .btn:hover {
-      background: #e63a45;
-    }
+.tagline {
+  color: #ff424d;
+  font-size: 20px;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #777;
-      font-size: 14px;
-    }
-  </style>
+/* SECTIONS */
+.section {
+  display: none;
+  padding: 40px 0;
+}
+
+.section.active {
+  display: block;
+}
+
+.card {
+  background: #151515;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  background: #ff424d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #e63a45;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+}
+</style>
 </head>
 
 <body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="nav">
+    <button class="tab active" onclick="showTab('about')">About</button>
+    <button class="tab" onclick="showTab('education')">Education</button>
+    <button class="tab" onclick="showTab('interests')">Interests</button>
+    <button class="tab" onclick="showTab('work')">Work</button>
+    <button class="tab" onclick="showTab('philosophy')">Philosophy</button>
+    <button class="tab" onclick="showTab('connect')">Connect</button>
+  </div>
+</div>
 
 <header>
   <div class="container">
@@ -95,87 +136,70 @@
 
 <div class="container">
 
-  <!-- ABOUT -->
-  <div class="section">
-    <h2>About Me</h2>
-    <p>
-      I am an emerging entrepreneur focused on building real-world systems through commodities, global trade, and execution-driven thinking. 
-      My approach combines economic strategy, human demand mapping, and deep focus (flow state) to create scalable business opportunities.
-    </p>
+<!-- ABOUT -->
+<div id="about" class="section active">
+  <h2>About Me</h2>
+  <p>I am an emerging entrepreneur focused on building real-world systems through commodities and global trade.</p>
+</div>
 
-    <p>
-      I believe the future belongs to those who understand how raw materials transform into global value chains — and who can act on it with clarity and discipline.
-    </p>
+<!-- EDUCATION -->
+<div id="education" class="section">
+  <h2>Education</h2>
+  <div class="card">
+    <p><strong>Jain University</strong></p>
+    <p>Business + real-world execution mindset.</p>
   </div>
+</div>
 
-  <!-- EDUCATION -->
-  <div class="section">
-    <h2>Education</h2>
-    <div class="card">
-      <p><strong>Jain University</strong></p>
-      <p>
-        Background in business and entrepreneurship with a strong inclination toward real-world application rather than theoretical learning.
-      </p>
-    </div>
+<!-- INTERESTS -->
+<div id="interests" class="section">
+  <h2>Core Interests</h2>
+  <div class="card">
+    <p>Commodity Trading</p>
+    <p>Waste → Value Systems</p>
+    <p>Entrepreneurship</p>
+    <p>Flow State</p>
   </div>
+</div>
 
-  <!-- INTERESTS -->
-  <div class="section">
-    <h2>Core Interests</h2>
-    <div class="card">
-      <p>• Commodity Trading & Global Markets</p>
-      <p>• Agricultural Value Chains & Waste Utilization</p>
-      <p>• Entrepreneurship & Venture Building</p>
-      <p>• Flow State & High-Performance Systems</p>
-      <p>• Future Economic Models (Navanomy Thinking)</p>
-    </div>
+<!-- WORK -->
+<div id="work" class="section">
+  <h2>What I’m Building</h2>
+  <div class="card">
+    <p>Waste → Commodity → Product → Global Market</p>
   </div>
+</div>
 
-  <!-- WORK / VISION -->
-  <div class="section">
-    <h2>What I’m Building</h2>
-    <div class="card">
-      <p>
-        Developing systems that connect:
-      </p>
-      <p>
-        Waste → Commodity → Product → Global Market
-      </p>
-      <p>
-        Focused on unlocking hidden value in overlooked materials and turning them into scalable business opportunities.
-      </p>
-    </div>
+<!-- PHILOSOPHY -->
+<div id="philosophy" class="section">
+  <h2>Philosophy</h2>
+  <div class="card">
+    <p>Execution > Information</p>
+    <p>Flow > Distraction</p>
   </div>
+</div>
 
-  <!-- PHILOSOPHY -->
-  <div class="section">
-    <h2>Philosophy</h2>
-    <div class="card">
-      <p>
-        Execution > Information
-      </p>
-      <p>
-        Real-world systems > Theory
-      </p>
-      <p>
-        Flow state > Distraction
-      </p>
-    </div>
-  </div>
-
-  <!-- LINKEDIN -->
-  <div class="section">
-    <h2>Connect</h2>
-    <a href="https://www.linkedin.com/in/rasuthgowda/" target="_blank" class="btn">
-      View LinkedIn
-    </a>
-  </div>
+<!-- CONNECT -->
+<div id="connect" class="section">
+  <h2>Connect</h2>
+  <a href="https://www.linkedin.com/in/rasuthgowda/" target="_blank" class="btn">LinkedIn</a>
+</div>
 
 </div>
 
 <footer>
-  <p>© 2026 Rasuth Gowda | Flow State Builder</p>
+  <p>© 2026 Rasuth Gowda</p>
 </footer>
+
+<script>
+function showTab(tabId) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
 
 </body>
 </html>
